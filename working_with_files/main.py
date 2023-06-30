@@ -4,5 +4,7 @@
 
 
 
-with open("new_file.txt", mode="w") as file:
-    file.write("This is the new file")
+with open("../../../my_file.txt") as file:
+    contents = file.read()
+    print(contents)
+# /Users/devinanderson/Desktop/my_file.txt
