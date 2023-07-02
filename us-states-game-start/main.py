@@ -25,13 +25,8 @@ game_is_on = True
 while len(guessed_states) < 50:
     answer_state = screen.textinput(f"{len(guessed_states)}/50 States Correct", prompt="What's another state name?").title()
     if answer_state == "Exit":
-        series1 = pd.Series(state_column)
-        series2 = pd.Series(guessed_states)
-        missing_states = series1[~series1.isin(series2)].tolist()
-        data_dict = {
-            "missing states": missing_states
-        }
-        data = pd.DataFrame(data_dict)
+        missing_states = [states for states in state_column if states not in guessed_states]
+        data = pd.DataFrame(missing_states)
         data.to_csv("missing_states.csv")
         break
     if answer_state in state_column and answer_state not in guessed_states:

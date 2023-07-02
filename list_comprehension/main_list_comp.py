@@ -1,5 +1,6 @@
-numbers = [1,2,3,4,5]
+names = ["Devin","Izzy", "Luna", "Charles", "Peter", "Ringo"]
 
-new_list = [i + 2 for i in numbers]
+new_list = [n.upper() for n in names if len(n) >= 5]
+
 
 print(new_list)
